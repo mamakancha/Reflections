@@ -1,0 +1,77 @@
+NOTES:
+
+Version control is a system that records changes to a file or set of files over time so that you can recall specific versions later.
+
+
+In Git terminology, user-created checkpoints are called Commits.
+
+You'll often have multiple files that you want to track together. Git calls such a collection of files a repository.
+When you save a version of your files in git, in other words, when you make a commit, you will save a version of every file in your repository.
+A commit is a snapshot of every file in your repository at the time you choose to make the commit.
+
+A good rule of thumb is to make one commit per logical change. For example, if you fixed a typo, then fixed a bug in a separate part of the file, you should use one commit for each change since they are logically separate. If you do this, each commit will have one purpose that can be easily understood. Git allows you to write a short message explaining what was changed in each commit, and that message will be more useful if each commit has a single logical change.
+
+
+Q)
+What I did: I have created a remote repository on Github and I am trying to clone the remote repository on my local machine. While cloning I am providing the clone URL & target folder.
+But every time I try to clone, I am getting this error:
+Error: "fatal: unable to access 'https://github.com/hyperion057/spring-repo.git/': Could not resolve host: github.com"
+What do I need to do to connect to GitHub ?
+
+Ans)
+I got a similar error, and it's caused by incorrect proxy setting. This command saved me:
+git config --global --unset http.proxy
+https version:
+git config --global --unset https.proxy
+
+
+
+
+**************************************************************************************************************************************************************
+
+
+
+REFLECTIONS:
+
+How did viewing a diff between two versions of a file help you see the bug that
+was introduced?
+
+    Because you can specifically pin point the chages made in newer version of the file, so you can see them to check for any error.
+
+How could having easy access to the entire history of a file make you a more
+efficient programmer in the long term?
+
+    You can compare previous versions
+
+What do you think are the pros and cons of manually choosing when to create a
+commit, like you do in Git, vs having versions automatically saved, like Google
+docs does?
+
+    At your own convenience. if you are smart enough, manually choosing when to save would make your life easier rather than saving doc after every single change rather than every commit per logical change.
+
+Why do you think some version control systems, like Git, allow saving multiple
+files in one commit, while others, like Google Docs, treat each file separately?
+
+    Git is more programming oriented, where several files tend to consist one logical group. On the other hand, Google Docs is primarily more targeted for documents created for human readings, in which case each single file consists a meaningful piece
+
+How can you use the commands git log and git diff to view the history of files?
+
+    git log can be used to list the summaries of all the changes made to the repository.
+    git diff can be used to see what has actually changed between two given commits.
+
+How might using version control make you more confident to make changes that
+could break something?
+
+    Becuase you can see what you had done in your older versions and see uptill where the code was working properly. after that you can debug from erraneous code using git diff by seeing what was changed
+
+Now that you have your workspace set up, what do you want to try using Git for?
+
+    GSoC
+
+
+**************************************************************************************************************************************************************
+
+
+  Git does not rename files when you save a new commit. It uses the commit IDs to refer to different versions of the files, and You can use "git checkout" to access old versions of your files. Temporarily reset all files in a directory to their state at the time of a specific commit.
+
+  "git diff old_version new_version"
