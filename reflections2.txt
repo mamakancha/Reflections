@@ -1,0 +1,52 @@
+"git init" initializes or creates a new Git repository.
+Git does not any commits when it initializes a repository. So, log will be empty at that point of time.
+
+--> HEAD is the current commit.
+
+
+Add files to staging area. Then you can accomodate all the files in staging area into one commit.
+
+To remove one file from the staging area : git reset HEAD -- path/to/file
+To remove all files from the staging area : git reset HEAD -- 
+
+
+*********************************************************************************************************************************************************
+
+
+
+What happens when you initialize a repository? Why do you need to do it?
+
+A new repository with empty log i.e. no previous commits is made.It works that way so that it won't automatically include files you actually don't want to keep track of.
+
+
+How is the staging area different from the working directory and the repository?
+What value do you think it offers?
+
+
+
+
+How can you use the staging area to make sure you have one commit per logical
+change?
+
+
+
+
+What are some situations when branches would be helpful in keeping your history
+organized? How would branches help?
+
+
+
+
+How do the diagrams help you visualize the branch structure?
+
+
+
+
+What is the result of merging two branches together? Why do we represent it in
+the diagram the way we do?
+
+
+
+
+What are the pros and cons of Gitâ€™s automatic merging vs. always doing merges
+manually?
