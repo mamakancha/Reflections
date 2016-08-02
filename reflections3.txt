@@ -1,0 +1,40 @@
+Donot initialize your repository with a README if you already have content to add. If you had no content to add before aking a repository only then you shoudl've checked the box.( then the repository would already have one commit in it )
+
+Just like git branch, with "git remote" you can view and create remotes. If you have only one remote, it is generally names as origin.
+
+"git remote add origin(can be anything though) url" ( note that for creating branch , you just have to write name of the branch you want to add after git branch)
+To verify that the url was created correctly, type "git remote -v"( v stand for verbose )( double dash also works just fine)
+
+In order to send your changes, use git push which takes two arguments, the remote you want to send the changes to and name of the local branch you want to push.
+For ex. "git push origin master"
+BEFORE ADDING TO REPOSITORY MAKE SURE THAT YOU COMMIT ALL THE CHANGES.
+
+When would you want to use a remote repository rather than keeping all your work
+local?
+
+    Fill in your answer here
+
+Why might you want to always pull changes manually rather than having Git
+automatically stay up-to-date with your remote repository?
+
+    Fill in your answer here
+
+Describe the differences between forks, clones, and branches.  When would you
+use one instead of another?
+
+    Fill in your answer here
+
+What is the benefit of having a copy of the last known state of the remote
+stored locally?
+
+    Fill in your answer here
+
+How would you collaborate without using Git or GitHub?  What would be easier,
+and what would be harder?
+
+    Fill in your answer here
+
+When would you want to make changes in a separate branch rather than directly in
+master?  What benefits does each approach have?
+
+    Fill in your answer here
