@@ -10,43 +10,82 @@ To remove one file from the staging area : git reset HEAD -- path/to/file
 To remove all files from the staging area : git reset HEAD -- 
 
 
+git diff compares working directory and staging area ( + for pehla vala i.e. working directory)
+git diff --staged compares staging area and most recent commit ( + for pehla vala i.e stagig area)
+
+git branch(only this much i.e. no arguement) shows you the current branches
+"git branch xyz" creates a branch of the name xyz
+the branch with * marked is the checked out branch and it will be updated if any changes are made. You can use git checkout to change focus to other braches.
+When a new branch is created it has the same information as master.
+
+git log --graph --oneline
+
+After you merge coins with the main branch, the combined file would be now called as master branch. if you run git log on this branch, you will be shown all the accessible files ( according to the graph). the commits would be shown in order in context with the timesnaps.
+
+git merge will also include the currently checked-out branch in the merged version. So if you have branch1 checked out, and you run git merge branch2 ranch3, the merged version will combine branch1 as well as branch2 and branch3. That’s because the branch1 label will update after you make the merge commit, so it’s unlikely that you didn’t want the changes from branch1 included in the merge. For this reason, you should always checkout one of the two branches you’re lanning on merging before doing the merge. Which one you should check out depends on which branch label you want to point to the new commit.
+If you want to merge branch2 into branch1, you can simply git checkout branch1 and then type git merge branch2. The only reason to type git merge branch1 branch2 is if it helps you keep better mental track of which branches you are merging.
+
+https://classroom.udacity.com/courses/ud775/lessons/2969618657/concepts/29892386280923 : For merge conflicts
+
+"git show commit_id" tells you about the change that was made as compared to its parent without actually knowing the parent. ( useful in case of merging the branches and using git log where the commmits are according to the time they were done and not in the proper order.)
+
+git branch -d coins will delete the coins branch ( not the commits though)
+
+
+
+Error: Your branch is ahead of 'origin/master' by 3 commits.
+You get that message because you made changes in your local master and you didn't push them to remote. You have several ways to "solve" it and it normally depends on how your workflow looks like:
+
+1. In a good workflow your remote copy of master should be the good one while your local copy of master is just a copy of the one in remote. Using this workflow you'll never get this message again.
+2. If you work in another way and your local changes should be pushed then just git push origin assuming origin is your remote
+3. If your local changes are bad then just remove them or reset your local master to the state on remote git reset --hard origin/master
+
+
+
+
+MERGE CONFLICTS :
+merged common ancestors : jisko donon branches ne modify kiya hai
+HEAD(top section) : my code
+master( bottom section): code in master right now
+
+
+
 *********************************************************************************************************************************************************
+https://github.com/Denyos/reflections/blob/master/lesson_2_reflections.txt
 
 
-
-What happens when you initialize a repository? Why do you need to do it?
+---> What happens when you initialize a repository? Why do you need to do it?
 
 A new repository with empty log i.e. no previous commits is made.It works that way so that it won't automatically include files you actually don't want to keep track of.
 
 
-How is the staging area different from the working directory and the repository?
-What value do you think it offers?
+---> How is the staging area different from the working directory and the repository? What value do you think it offers?
+
+Staging area is the preparation area for files to be committed. Only files in this area are going to be included in the commit executed next time. It helps to divide changes in the working directory into several commits, each of which consists of a group of changes that represent a logical change to the relevant files.
+
+
+---> How can you use the staging area to make sure you have one commit per logical change?
+
+First add files that are related to the first logical change you want to commit, and after making it sure you have staged all the files, make a commit. Next you stage other files that are related to the second logical change you want to commit, and so on
 
 
 
-
-How can you use the staging area to make sure you have one commit per logical
-change?
-
+---> What are some situations when branches would be helpful in keeping your history organized? How would branches help?
+branches are useful for when you have working code and want to try a variation in functionality without breaking what you currently have. By branching you create a copy of the master (or wherever the head is) and then "branch off" at that point. The main branch stays intact and unchanged, but you are free to make any changes to the new branch.)
 
 
 
-What are some situations when branches would be helpful in keeping your history
-organized? How would branches help?
+---> How do the diagrams help you visualize the branch structure?
+
+by drawing out the branch structure you can see how the commits and branches relate to each other and can readily identify where each branch exists in relation to the others, and which commits are reachable from each branch. This can help you see why a bug fix or feature is not included in a particlar commit that may be in a different Sbranch.
 
 
+---> What is the result of merging two branches together? Why do we represent it in the diagram the way we do?
+
+The result is one branch with changes from both branches.
 
 
-How do the diagrams help you visualize the branch structure?
-
-
-
-
-What is the result of merging two branches together? Why do we represent it in
-the diagram the way we do?
-
-
-
-
-What are the pros and cons of Gitâ€™s automatic merging vs. always doing merges
-manually?
+---> What are the pros and cons of Gitâ€™s automatic merging vs. always doing merges manually?
+ 
+Pros: Automatic merging saves a lot of time compared to doing merges manually.
+Cons: Git can't really tell which piece of code should be better to pick in case of conflicts.
